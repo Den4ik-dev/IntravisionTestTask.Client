@@ -1,18 +1,14 @@
-import { useContext, useEffect, useState } from 'react';
-import api from '../../services/AxiosService';
-import Drink from '../../models/Drink';
-import {
-  BasketContext,
-  BasketContextProvider,
-} from '../../contexts/BasketContext';
+import { useState } from 'react';
+import { BasketContextProvider } from '../../contexts/BasketContext';
 import DropCoinsForm from './DropCoinsForm';
 import MachineWithDrinks from './MachineWithDrinks';
 import Basket from './Basket';
 import './UserPage.style.css';
+import DrinkLine from '../../models/DrinkLine';
 
 const UserPage = () => {
   /// TODO: PAGINATION
-  const [drinks, setDrinks] = useState<Drink[]>([]);
+  const [drinks, setDrinks] = useState<DrinkLine[]>([]);
 
   return (
     <BasketContextProvider>

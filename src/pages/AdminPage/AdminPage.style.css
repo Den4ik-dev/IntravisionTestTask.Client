@@ -1,0 +1,25 @@
+.admin-page-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-page-drinks {
+  overflow: auto;
+  flex: 1 1 auto;
+}
+
+.admin-page-drinks__item {
+}
+
+.admin-page-drinks__item-img {
+  height: 225px;
+  width: 225px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-page-drinks__item-img img {
+  height: 100%;
+}

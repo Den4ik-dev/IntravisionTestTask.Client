@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 import DrinkMiniCard from '../../components/DrinkMiniCard/DrinkMiniCard';
-import Drink from '../../models/Drink';
+import DrinkLine from '../../models/DrinkLine';
 import api from '../../services/AxiosService';
 
 const MachineWithDrinks = ({
   drinks,
   setDrinks,
 }: {
-  drinks: Drink[];
-  setDrinks: React.Dispatch<React.SetStateAction<Drink[]>>;
+  drinks: DrinkLine[];
+  setDrinks: React.Dispatch<React.SetStateAction<DrinkLine[]>>;
 }) => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [fetching, setFetching] = useState<boolean>(true);

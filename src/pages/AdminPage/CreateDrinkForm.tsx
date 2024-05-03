@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import api from '../../services/AxiosService';
 import axios from 'axios';
 import ErrorFromServer from '../../models/ErrorFromServer';
+import './AdminPage.style.css';
 
 type DrinkOfCreateDto = {
   name: string;
@@ -83,7 +84,6 @@ const CreateDrinkForm = () => {
           type="number"
           name="price"
           placeholder="Цена за одну штуку"
-          value={drinkLineOfCreate.drink.price}
           onChange={(e) =>
             setDrinkLineOfCreate((prev) => ({
               ...prev,
@@ -97,7 +97,6 @@ const CreateDrinkForm = () => {
           type="number"
           name="quantity"
           placeholder="Количество в автомате"
-          value={drinkLineOfCreate.drinksQuantityInMachine}
           onChange={(e) =>
             setDrinkLineOfCreate((prev) => ({
               ...prev,

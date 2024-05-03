@@ -1,11 +1,12 @@
-import DrinkLine from '../../models/DrinkLine';
+import BasketDrinkLine from '../../models/BasketDrinkLine';
+import { getQueryWithoutString } from '../../services/CachingService';
 
-const BasketItem = ({ drink }: { drink: DrinkLine }) => {
+const BasketItem = ({ drink }: { drink: BasketDrinkLine }) => {
   return (
     <div>
       <div className="basket-item__img">
         {drink.imagePath ? (
-          <img src={drink.imagePath} alt={drink.name} />
+          <img src={getQueryWithoutString(drink.imagePath)} alt={drink.name} />
         ) : (
           <img src="/drinks/drink-empty-image.png" alt={drink.name} />
         )}

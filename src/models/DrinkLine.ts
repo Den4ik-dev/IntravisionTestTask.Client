@@ -4,7 +4,7 @@ type DrinkLine = {
   name: string;
   price: number;
   drinksQuantityInMachine: number;
-  drinksQuantityInBasket: number;
+  isChanging?: boolean;
 };
 
 export default DrinkLine;

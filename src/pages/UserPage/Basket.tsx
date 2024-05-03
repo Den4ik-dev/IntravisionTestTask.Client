@@ -2,12 +2,12 @@ import { useContext } from 'react';
 import { BasketContext } from '../../contexts/BasketContext';
 import BasketItem from './BasketItem';
 import { PayDrinks } from '../../services/BasketService';
-import Drink from '../../models/Drink';
+import DrinkLine from '../../models/DrinkLine';
 
 const Basket = ({
   setDrinks,
 }: {
-  setDrinks: React.Dispatch<React.SetStateAction<Drink[]>>;
+  setDrinks: React.Dispatch<React.SetStateAction<DrinkLine[]>>;
 }) => {
   const {
     drinksInBasket,

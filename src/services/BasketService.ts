@@ -1,13 +1,13 @@
+import BasketDrinkLine from '../models/BasketDrinkLine';
 import DrinkLine from '../models/DrinkLine';
-import Drink from '../models/Drink';
 import api from './AxiosService';
 
 export const AddDrinkInBasket = (
-  drink: Drink,
-  setDrinksInBasket: React.Dispatch<React.SetStateAction<DrinkLine[]>>
+  drink: DrinkLine,
+  setDrinksInBasket: React.Dispatch<React.SetStateAction<BasketDrinkLine[]>>
 ) => {
   setDrinksInBasket((prev) => {
-    const drinkLine: DrinkLine | undefined = prev.find(
+    const drinkLine: BasketDrinkLine | undefined = prev.find(
       (drinkLine) => drinkLine.id == drink.id
     );
 
@@ -29,9 +29,9 @@ export const AddDrinkInBasket = (
 
 export const GetDrinksQuantityInBasket = (
   drinkId: string,
-  drinksInBasket: DrinkLine[]
+  drinksInBasket: BasketDrinkLine[]
 ) => {
-  const drinkLine: DrinkLine | undefined = drinksInBasket.find(
+  const drinkLine: BasketDrinkLine | undefined = drinksInBasket.find(
     (dl) => dl.id == drinkId
   );
 
@@ -39,11 +39,11 @@ export const GetDrinksQuantityInBasket = (
 };
 
 export const PayDrinks = (
-  drinksInBasket: DrinkLine[],
-  setDrinksInBasket: React.Dispatch<React.SetStateAction<DrinkLine[]>>,
+  drinksInBasket: BasketDrinkLine[],
+  setDrinksInBasket: React.Dispatch<React.SetStateAction<BasketDrinkLine[]>>,
   droppedCoins: number[],
   setDroppedCoins: React.Dispatch<React.SetStateAction<number[]>>,
-  setDrinks: React.Dispatch<React.SetStateAction<Drink[]>>
+  setDrinks: React.Dispatch<React.SetStateAction<DrinkLine[]>>
 ) => {
   const purchases = drinksInBasket.map((dl) => ({
     drinkLineId: dl.id,

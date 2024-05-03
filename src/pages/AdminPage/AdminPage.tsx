@@ -1,16 +1,13 @@
-import axios from 'axios';
-import { FormEvent, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import Drinks from '../../components/Drinks/Drinks';
+import DrinkLines from './DrinksLines';
 import CreateDrinkForm from './CreateDrinkForm';
-import './AdminPage.module.css';
+import './AdminPage.style.css';
 
 const AdminPage = () => {
   return (
     <div className="admin-page-wrapper wrapper">
       <CreateDrinkForm />
 
-      <Drinks />
+      <DrinkLines />
     </div>
   );
 };

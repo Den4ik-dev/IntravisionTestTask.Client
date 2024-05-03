@@ -1,8 +1,12 @@
 .drink-mini-card__img {
   height: 225px;
-  max-width: 225px;
+  width: 225px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .drink-mini-card__img img {
-  width: 100%;
+  height: 100%;
 }

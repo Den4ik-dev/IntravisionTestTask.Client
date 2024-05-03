@@ -1,11 +1,12 @@
 import { useContext, useEffect } from 'react';
-import Drink from '../../models/Drink';
+import DrinkLine from '../../models/DrinkLine';
 import { BasketContext } from '../../contexts/BasketContext';
 import {
   AddDrinkInBasket,
   GetDrinksQuantityInBasket,
 } from '../../services/BasketService';
 import './DrinkMiniCard.style.css';
+import { getQueryWithoutString } from '../../services/CachingService';
 
 const DrinkMiniCard = ({
   id,
@@ -13,7 +14,7 @@ const DrinkMiniCard = ({
   imagePath,
   price,
   drinksQuantityInMachine,
-}: Drink) => {
+}: DrinkLine) => {
   const { droppedCoins, totalPrice, setDrinksInBasket, drinksInBasket } =
     useContext(BasketContext);
 
@@ -43,7 +44,7 @@ const DrinkMiniCard = ({
     >
       <div style={{ userSelect: 'none' }} className="drink-mini-card__img">
         {imagePath ? (
-          <img src={imagePath} alt={name} />
+          <img src={getQueryWithoutString(imagePath)} alt={name} />
         ) : (
           <img src="/drinks/drink-empty-image.png" alt={name} />
         )}

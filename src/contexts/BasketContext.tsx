@@ -1,9 +1,9 @@
 import { ReactNode, createContext, useEffect, useState } from 'react';
-import DrinkLine from '../models/DrinkLine';
+import BasketDrinkLine from '../models/BasketDrinkLine';
 
 type StateType = {
-  drinksInBasket?: DrinkLine[];
-  setDrinksInBasket?: React.Dispatch<React.SetStateAction<DrinkLine[]>>;
+  drinksInBasket?: BasketDrinkLine[];
+  setDrinksInBasket?: React.Dispatch<React.SetStateAction<BasketDrinkLine[]>>;
   droppedCoins?: number[];
   setDroppedCoins?: React.Dispatch<React.SetStateAction<number[]>>;
   totalPrice?: number;
@@ -17,7 +17,7 @@ export const BasketContextProvider = ({
 }: {
   children: ReactNode;
 }) => {
-  const [drinksInBasket, setDrinksInBasket] = useState<DrinkLine[]>([]);
+  const [drinksInBasket, setDrinksInBasket] = useState<BasketDrinkLine[]>([]);
   const [droppedCoins, setDroppedCoins] = useState<number[]>([]);
   const [totalPrice, setTotalPrice] = useState<number>(0);
 
