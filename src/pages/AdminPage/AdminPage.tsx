@@ -1,4 +1,4 @@
-import DrinkLines from './DrinksLines';
+import DrinkLines from './DrinkLines';
 import CreateDrinkForm from './CreateDrinkForm';
 import './AdminPage.style.css';
 import NominalControlPanel from './NominalsControlPanel';

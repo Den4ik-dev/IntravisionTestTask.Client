@@ -5,6 +5,7 @@
 .admin-page__header {
   display: flex;
   justify-content: space-between;
+  padding: 20px 0;
 }
 .admin-page-drinks {
   overflow: auto;

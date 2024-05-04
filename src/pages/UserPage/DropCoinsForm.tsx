@@ -1,12 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { BasketContext } from '../../contexts/BasketContext';
-import api from '../../services/AxiosService';
-
-type Nominal = {
-  id: number;
-  value: number;
-  isBlocked: boolean;
-};
+import Nominal from '../../models/Nominal';
+import { getAllNominals } from '../../services/NominalsService';
 
 const DropCoinsForm = () => {
   const [nominals, setNominals] = useState<Nominal[]>([]);
@@ -15,9 +10,7 @@ const DropCoinsForm = () => {
     useContext(BasketContext);
 
   useEffect(() => {
-    api
-      .get('api/nominals')
-      .then((response) => setNominals(response.data as Nominal[]));
+    getAllNominals().then((data) => setNominals(data));
   }, []);
 
   const dropCoins = (nominal: number) => {

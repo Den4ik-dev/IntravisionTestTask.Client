@@ -57,11 +57,7 @@ const CreateDrinkForm = () => {
   };
 
   return (
-    <form
-      onSubmit={fetchToServer}
-      encType="multipart/form-data"
-      style={{ padding: '10px 0' }}
-    >
+    <form onSubmit={fetchToServer} encType="multipart/form-data">
       <div>
         <input type="file" name="image" />
       </div>
