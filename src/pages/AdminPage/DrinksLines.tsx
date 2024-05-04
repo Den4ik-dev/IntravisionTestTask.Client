@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import DrinkLine from '../../models/DrinkLine';
 import DrinkLinesItem from './DrinkLinesItem';
 import './AdminPage.style.css';
@@ -14,18 +14,26 @@ import ErrorFromServer from '../../models/ErrorFromServer';
 import api from '../../services/AxiosService';
 
 const DrinkLines = () => {
-  const [drinkLines, setDrinkLines] = useState<DrinkLine[]>([]);
-
   const { admin_secret } = useParams();
   const nav = useNavigate();
 
-  useEffect(() => {
-    api.get('api/drinkLines?page=1').then((response) => {
-      let data = response.data as DrinkLine[];
+  const [drinkLines, setDrinkLines] = useState<DrinkLine[]>([]);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [fetching, setFetching] = useState<boolean>(true);
+  const refTotalCount = useRef<number>(0);
 
-      setDrinkLines([...drinkLines, ...data]);
-    });
-  }, []);
+  useEffect(() => {
+    if (fetching) {
+      api
+        .get(`/api/drinkLines?limit=15&page=${currentPage}`)
+        .then((resp) => {
+          setDrinkLines((prev) => [...prev, ...resp.data]);
+          setCurrentPage(currentPage + 1);
+          refTotalCount.current = resp.headers['x-total-count'] as number;
+        })
+        .finally(() => setFetching(false));
+    }
+  }, [fetching]);
 
   const editDrinkLine = (id: string) => {
     const newDrinkLines = drinkLines.map((drinkLine) =>
@@ -82,7 +90,21 @@ const DrinkLines = () => {
   };
 
   return (
-    <div className="admin-page-drinks">
+    <div
+      className="admin-page-drinks"
+      onScroll={(e) => {
+        const drinksBlock = e.target as HTMLDivElement;
+
+        if (
+          drinksBlock.scrollHeight -
+            (drinksBlock.scrollTop + window.innerHeight) <
+            100 &&
+          drinkLines.length < refTotalCount.current
+        ) {
+          setFetching(true);
+        }
+      }}
+    >
       {drinkLines.map((drinkLine) =>
         drinkLine.isChanging ? (
           <ChangeDrinkLineForm

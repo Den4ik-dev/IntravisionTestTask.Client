@@ -39,7 +39,7 @@ const ChangeDrinkLineForm = ({
   const [error, setError] = useState<string>('');
 
   return (
-    <div>
+    <div className="change-drink-line-block">
       <form
         action="put"
         onSubmit={async (e) => {
@@ -55,9 +55,12 @@ const ChangeDrinkLineForm = ({
             setError
           );
         }}
+        className="change-drink-line-block__form"
       >
         <div>
-          <img src={imagePath} alt={name} />
+          <div className="change-drink-line-block__image">
+            <img src={imagePath} alt={name} />
+          </div>
           <div>
             <input type="file" name="image" />
           </div>

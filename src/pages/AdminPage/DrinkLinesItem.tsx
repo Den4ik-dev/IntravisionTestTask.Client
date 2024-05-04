@@ -26,7 +26,14 @@ const DrinkLinesItem = ({
         className="admin-page-drinks__item-img"
         style={{ userSelect: 'none' }}
       >
-        <img src={getQueryWithoutString(imagePath)} alt={name} />
+        <img
+          src={
+            imagePath
+              ? getQueryWithoutString(imagePath)
+              : '/drinks/drink-empty-image.png'
+          }
+          alt={name}
+        />
       </div>
       <div>{name}</div>
       <div>Цена: {price}</div>

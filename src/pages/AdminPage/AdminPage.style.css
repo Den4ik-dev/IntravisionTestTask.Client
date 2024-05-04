@@ -2,7 +2,10 @@
   display: flex;
   flex-direction: column;
 }
-
+.admin-page__header {
+  display: flex;
+  justify-content: space-between;
+}
 .admin-page-drinks {
   overflow: auto;
   flex: 1 1 auto;
@@ -11,7 +14,8 @@
 .admin-page-drinks__item {
 }
 
-.admin-page-drinks__item-img {
+.admin-page-drinks__item-img,
+.change-drink-line-block__image {
   height: 225px;
   width: 225px;
   overflow: hidden;
@@ -20,6 +24,7 @@
   justify-content: center;
 }
 
-.admin-page-drinks__item-img img {
+.admin-page-drinks__item-img img,
+.change-drink-line-block__image img {
   height: 100%;
 }
