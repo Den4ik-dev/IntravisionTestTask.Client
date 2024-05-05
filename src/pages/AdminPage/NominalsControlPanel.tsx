@@ -5,6 +5,8 @@ import {
   switchBlockNominalRequest,
 } from '../../services/NominalsService';
 import { useParams } from 'react-router-dom';
+import { Switch } from '@mui/material';
+import NominalControl from './NominalControl';
 
 const NominalControlPanel = () => {
   const { admin_secret } = useParams();
@@ -15,10 +17,7 @@ const NominalControlPanel = () => {
   }, []);
 
   const switchBlockNominal = async (id: number) => {
-    // change block nominal
-    // send request POST api/nominals/{nominal_id}/isBlocked
     await switchBlockNominalRequest(id, admin_secret!);
-    // call setNominals
     const newNominals = nominals.map((nominal) =>
       nominal.id == id ? { ...nominal, isBlocked: !nominal.isBlocked } : nominal
     );
@@ -27,21 +26,17 @@ const NominalControlPanel = () => {
   };
 
   return (
-    <div>
-      <div>Управление блокировкой номиналов</div>
+    <div className="nominal-control-panel">
+      <div className="nominal-control-panel__title">
+        Управление блокировкой номиналов монет
+      </div>
       <div style={{ display: 'flex' }}>
         {nominals.map((nominal) => (
-          <div key={nominal.id}>
-            <div>{nominal.value}</div>
-            <div>{nominal.isBlocked ? 'Заблокирован' : 'Разблокирован'}</div>
-            <div>
-              <input
-                type="checkbox"
-                checked={!nominal.isBlocked}
-                onChange={() => switchBlockNominal(nominal.id)}
-              />
-            </div>
-          </div>
+          <NominalControl
+            key={nominal.id}
+            {...nominal}
+            switchBlockNominal={switchBlockNominal}
+          />
         ))}
       </div>
     </div>

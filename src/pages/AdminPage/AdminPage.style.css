@@ -25,7 +25,56 @@
   justify-content: center;
 }
 
+.nominal-control-panel__title {
+  padding-bottom: 5px;
+  padding-left: 10px;
+}
+
+.nominal-control {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5px;
+}
+.nominal-control__value {
+  user-select: none;
+  display: flex;
+  width: 50px;
+  height: 50px;
+  background-color: #cfc74e;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-left: 5px;
+}
+
 .admin-page-drinks__item-img img,
 .change-drink-line-block__image img {
   height: 100%;
+}
+
+.create-form__input-label {
+  margin: 10px 0;
+}
+
+.create-form__input-title {
+  font-size: 15px;
+}
+.create-form {
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: #ccc 5px 5px 5px;
+  flex: 1 1 auto;
+  max-width: 600px;
+}
+
+.create-form__title {
+  font-weight: 600;
+  padding-bottom: 10px;
+}
+
+.nominal-control-panel {
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: #ccc 5px 5px 5px;
 }

@@ -4,6 +4,7 @@ import api from '../../services/AxiosService';
 import axios from 'axios';
 import ErrorFromServer from '../../models/ErrorFromServer';
 import './AdminPage.style.css';
+import { Button, Input } from '@mui/material';
 
 type DrinkOfCreateDto = {
   name: string;
@@ -57,12 +58,19 @@ const CreateDrinkForm = () => {
   };
 
   return (
-    <form onSubmit={fetchToServer} encType="multipart/form-data">
-      <div>
-        <input type="file" name="image" />
+    <form
+      onSubmit={fetchToServer}
+      encType="multipart/form-data"
+      className="create-form"
+    >
+      <div className="create-form__title">Добавление нового напитка </div>
+      <div className="create-form__input-label">
+        <div className="create-form__input-title">Изображение напитка:</div>
+        <Input type="file" name="image" />
       </div>
-      <div>
-        <input
+      <div className="create-form__input-label">
+        <div className="create-form__input-title">Название напитка:</div>
+        <Input
           type="text"
           name="name"
           placeholder="Название продукта"
@@ -75,8 +83,11 @@ const CreateDrinkForm = () => {
           }
         />
       </div>
-      <div>
-        <input
+      <div className="create-form__input-label">
+        <div className="create-form__input-title">
+          Цена за одну единицу напитка:
+        </div>
+        <Input
           type="number"
           name="price"
           placeholder="Цена за одну штуку"
@@ -88,8 +99,9 @@ const CreateDrinkForm = () => {
           }
         />
       </div>
-      <div>
-        <input
+      <div className="create-form__input-label">
+        <div className="create-form__input-title">Количество напитков:</div>
+        <Input
           type="number"
           name="quantity"
           placeholder="Количество в автомате"
@@ -102,9 +114,13 @@ const CreateDrinkForm = () => {
         />
       </div>
       <div style={{ color: 'red' }}>{errorMessage}</div>
-      <div>
-        <input type="submit" value="Добавить новый напиток" />
-      </div>
+      <Button
+        type="submit"
+        variant="contained"
+        style={{ width: '100%', marginTop: '10px' }}
+      >
+        Добавить напиток
+      </Button>
     </form>
   );
 };
