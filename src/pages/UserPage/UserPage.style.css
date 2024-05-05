@@ -17,16 +17,32 @@
   display: flex;
   flex-direction: column;
   max-height: 100%;
-  min-width: 250px;
+  width: 275px;
+  padding-top: 10px;
+  padding-left: 10px;
+  border-left: 1px solid #478eb8;
 }
-
+.basket__header {
+  margin-bottom: 10px;
+}
 .basket__items {
   flex: 1 1 auto;
   overflow: auto;
+  display: flex;
+  flex-wrap: wrap;
+  width: 270px;
+  justify-content: center;
 }
+.drink-basket-card {
+  margin: 10px 0;
+}
+
 .machine-with-drinks {
   flex: 1 1 auto;
   overflow: auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 .basket-item__img {
   height: 225px;
@@ -39,4 +55,68 @@
 
 .basket-item__img img {
   height: 100%;
+}
+
+.drink-mini-card__img {
+  height: 225px;
+  width: 225px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.drink-mini-card__img img {
+  height: 100%;
+}
+
+.drink-mini-card {
+  margin: 10px;
+}
+.drink-mini-card__body {
+  cursor: pointer;
+}
+
+.drink-mini-card__body {
+  padding: 10px;
+}
+
+.drink-mini-card:disabled {
+  cursor: default;
+}
+
+.drop-coins-form {
+  display: flex;
+  padding: 10px 20px 10px 0;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.coin-button {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3e89bb;
+  border-radius: 5px;
+  margin-right: 5px;
+  color: #fff;
+  transition: all 0.2s ease-out;
+}
+.coin-button:hover {
+  background-color: #3274a0;
+}
+.coin-button:disabled {
+  background-color: #ccc;
+}
+
+.pay-button {
+  margin: 10px 0;
+  background-color: #478eb8;
+  color: #fff;
+  transition: all 0.2s ease-out;
+}
+.pay-button:hover {
+  background-color: #3a789c;
 }

@@ -4,7 +4,8 @@
   box-sizing: border-box;
 }
 
-body {
+body,
+button {
   font-family: Montserrat, Arial, Helvetica, sans-serif;
   font-weight: 500;
 }
@@ -25,4 +26,32 @@ html {
   padding: 0 20px;
   margin: 0 auto;
   height: 100%;
+}
+
+.drink-card-body {
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  box-shadow: #ccc 5px 5px 5px;
+  overflow: hidden;
+  font-size: 16px;
+  padding: 10px;
+  background-color: #fff;
+}
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  box-shadow: #ccc 5px 5px 5px;
+  padding: 15px 10px;
+  font-size: 15px;
 }

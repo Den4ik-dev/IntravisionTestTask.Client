@@ -18,19 +18,20 @@ const DropCoinsForm = () => {
   };
 
   return (
-    <div style={{ display: 'flex' }}>
+    <div className="drop-coins-form">
       <div style={{ padding: '0 10px 0 0' }}>
         {nominals.map((nominal) => (
           <button
             key={nominal.id}
             disabled={nominal.isBlocked}
             onClick={() => dropCoins(nominal.value)}
+            className="coin-button"
           >
             {nominal.value}
           </button>
         ))}
-        <div>
-          Вы закинули:{' '}
+        <div style={{ paddingTop: '10px' }}>
+          Вы внесли:{' '}
           {droppedCoins!.reduce((droppedCoins, coin) => droppedCoins + coin, 0)}{' '}
           монет
         </div>
@@ -42,10 +43,11 @@ const DropCoinsForm = () => {
           {droppedCoins!.reduce(
             (droppedCoins, coin) => droppedCoins + coin,
             0
-          ) - totalPrice!}
+          ) - totalPrice!}{' '}
+          монет
         </div>
 
-        <div>Вы потратили {totalPrice}</div>
+        <div>Вы потратили {totalPrice} монет</div>
       </div>
     </div>
   );

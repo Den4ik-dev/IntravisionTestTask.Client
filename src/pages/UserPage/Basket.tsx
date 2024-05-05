@@ -21,30 +21,31 @@ const Basket = ({
 
   return (
     <div className="basket">
-      <div>Корзина покупок:</div>
-      <div>Общая цена: {totalPrice}</div>
+      <div className="basket__header">
+        <div>Корзина покупок:</div>
+        <div>Общая цена: {totalPrice}</div>
+      </div>
       <div className="basket__items">
         {drinksInBasket!.map((dl) => (
           <BasketItem key={dl.id} drink={dl} />
         ))}
       </div>
-      <div>
-        <button
-          onClick={() =>
-            PayDrinks(
-              drinksInBasket!,
-              setDrinksInBasket!,
-              droppedCoins!,
-              setDroppedCoins!,
-              setDrinks,
-              setCoinsInMachine,
-              totalPrice!
-            )
-          }
-        >
-          Оплатить
-        </button>
-      </div>
+      <button
+        onClick={() =>
+          PayDrinks(
+            drinksInBasket!,
+            setDrinksInBasket!,
+            droppedCoins!,
+            setDroppedCoins!,
+            setDrinks,
+            setCoinsInMachine,
+            totalPrice!
+          )
+        }
+        className="button pay-button"
+      >
+        Оплатить
+      </button>
     </div>
   );
 };

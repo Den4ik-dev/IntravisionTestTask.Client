@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import DrinkMiniCard from '../../components/DrinkMiniCard/DrinkMiniCard';
+import DrinkMiniCard from './DrinkMiniCard';
 import DrinkLine from '../../models/DrinkLine';
 import api from '../../services/AxiosService';
 
