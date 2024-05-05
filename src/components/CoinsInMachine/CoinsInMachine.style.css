@@ -1,0 +1,6 @@
+.coins-in-machine {
+  padding: 10px 0;
+}
+.coins-in-machine__value {
+  font-weight: 600;
+}

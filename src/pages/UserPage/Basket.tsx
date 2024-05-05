@@ -6,8 +6,10 @@ import DrinkLine from '../../models/DrinkLine';
 
 const Basket = ({
   setDrinks,
+  setCoinsInMachine,
 }: {
   setDrinks: React.Dispatch<React.SetStateAction<DrinkLine[]>>;
+  setCoinsInMachine: React.Dispatch<React.SetStateAction<number>>;
 }) => {
   const {
     drinksInBasket,
@@ -34,7 +36,9 @@ const Basket = ({
               setDrinksInBasket!,
               droppedCoins!,
               setDroppedCoins!,
-              setDrinks
+              setDrinks,
+              setCoinsInMachine,
+              totalPrice!
             )
           }
         >

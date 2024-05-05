@@ -43,7 +43,9 @@ export const PayDrinks = (
   setDrinksInBasket: React.Dispatch<React.SetStateAction<BasketDrinkLine[]>>,
   droppedCoins: number[],
   setDroppedCoins: React.Dispatch<React.SetStateAction<number[]>>,
-  setDrinks: React.Dispatch<React.SetStateAction<DrinkLine[]>>
+  setDrinks: React.Dispatch<React.SetStateAction<DrinkLine[]>>,
+  setCoinsInMachine: React.Dispatch<React.SetStateAction<number>>,
+  totalPrice: number
 ) => {
   const purchases = drinksInBasket.map((dl) => ({
     drinkLineId: dl.id,
@@ -65,6 +67,7 @@ export const PayDrinks = (
       }))
     );
 
+    setCoinsInMachine((prev) => prev + totalPrice);
     setDrinksInBasket([]);
     setDroppedCoins([]);
   });
